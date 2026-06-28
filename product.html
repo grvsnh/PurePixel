@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Pure Pixel product details." />
+		<title>Product | Pure Pixel</title>
+		<link rel="icon" href="assets/favicons/favicon.ico" />
+		<link rel="stylesheet" href="css/variables.css" />
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/global.css" />
+		<link rel="stylesheet" href="css/components.css" />
+		<link rel="stylesheet" href="css/animations.css" />
+		<link rel="stylesheet" href="css/pages/product.css" />
+	</head>
+	<body>
+		<div class="scroll-progress" id="scroll-progress"></div>
+		<header class="site-header">
+			<nav class="navbar" id="navbar" aria-label="Primary navigation">
+				<a class="brand" href="index.html"
+					>Pure <span class="brand__dot">●</span> Pixel</a
+				>
+				<div class="navbar__links">
+					<a href="shop.html">Shop</a
+					><a href="journal.html">Journal</a
+					><a href="about.html">About</a
+					><a href="wishlist.html">Wishlist</a>
+				</div>
+				<div class="navbar__actions">
+					<button
+						class="icon-btn"
+						id="theme-toggle"
+						type="button"
+						aria-label="Toggle theme"
+					>
+						<i data-lucide="sun-moon"></i></button
+					><a
+						class="icon-btn"
+						href="wishlist.html"
+						aria-label="Wishlist"
+						><i data-lucide="heart"></i
+						><span class="badge-count" data-wishlist-count hidden
+							>0</span
+						></a
+					><a class="icon-btn" href="cart.html" aria-label="Cart"
+						><i data-lucide="shopping-bag"></i
+						><span class="badge-count" data-cart-count hidden
+							>0</span
+						></a
+					><button
+						class="menu-btn"
+						id="menu-toggle"
+						type="button"
+						aria-label="Open menu"
+					>
+						<i data-lucide="menu"></i>
+					</button>
+				</div>
+			</nav>
+		</header>
+		<div class="menu-overlay" id="menu-overlay"></div>
+		<aside
+			class="mobile-panel"
+			id="mobile-menu"
+			aria-label="Mobile navigation"
+		>
+			<div class="mobile-panel__head">
+				<a class="brand" href="index.html"
+					>Pure <span class="brand__dot">●</span> Pixel</a
+				><button
+					class="icon-btn"
+					id="menu-close"
+					type="button"
+					aria-label="Close menu"
+				>
+					<i data-lucide="x"></i>
+				</button>
+			</div>
+			<div class="mobile-panel__links">
+				<a href="shop.html">Shop</a><a href="journal.html">Journal</a
+				><a href="about.html">About</a
+				><a href="wishlist.html">Wishlist</a
+				><a href="cart.html">Cart</a>
+			</div>
+		</aside>
+		<main>
+			<section
+				class="container product-detail"
+				id="product-detail"
+			></section>
+			<section class="section section--tight">
+				<div class="container">
+					<div class="section__header reveal">
+						<span class="eyebrow">Also Loved</span>
+						<h2>Complete the routine.</h2>
+					</div>
+					<div class="grid grid--4" id="featured-products"></div>
+				</div>
+			</section>
+		</main>
+		<footer class="site-footer">
+			<div class="container footer__grid">
+				<div>
+					<a class="brand" href="index.html"
+						>Pure <span class="brand__dot">●</span> Pixel</a
+					>
+					<p>Beauty. Pixel Perfect.</p>
+				</div>
+				<div>
+					<h4>Shop</h4>
+					<div class="footer__links">
+						<a href="shop.html">Skincare</a
+						><a href="shop.html">Makeup</a>
+					</div>
+				</div>
+				<div>
+					<h4>Company</h4>
+					<div class="footer__links">
+						<a href="about.html">About</a
+						><a href="journal.html">Journal</a>
+					</div>
+				</div>
+				<div>
+					<h4>Help</h4>
+					<div class="footer__links">
+						<a href="cart.html">Cart</a
+						><a href="checkout.html">Checkout</a>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="footer__bottom">
+					<p>© <span data-year></span> Pure Pixel.</p>
+					<p>Premium vanilla frontend.</p>
+				</div>
+			</div>
+		</footer>
+		<button
+			class="icon-btn back-to-top"
+			id="back-to-top"
+			type="button"
+			aria-label="Back to top"
+		>
+			<i data-lucide="arrow-up"></i>
+		</button>
+		<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+		<script src="js/utils.js"></script>
+		<script src="js/theme.js"></script>
+		<script src="js/wishlist.js"></script>
+		<script src="js/products.js"></script>
+		<script src="js/cart.js"></script>
+		<script src="js/animations.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>

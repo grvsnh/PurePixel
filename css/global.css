@@ -1,0 +1,165 @@
+@import url("https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600,700&display=swap");
+
+body {
+	background: var(--bg);
+	color: var(--ink);
+	font-family: var(--font-body);
+	line-height: 1.65;
+	overflow-x: hidden;
+	transition:
+		background var(--normal),
+		color var(--normal);
+}
+
+body.menu-open {
+	overflow: hidden;
+}
+
+.container {
+	width: min(calc(100% - 32px), var(--container));
+	margin-inline: auto;
+}
+
+.section {
+	padding: clamp(64px, 9vw, 120px) 0;
+}
+
+.section--tight {
+	padding: clamp(40px, 6vw, 72px) 0;
+}
+
+.section__header {
+	display: grid;
+	gap: var(--space-4);
+	margin-bottom: var(--space-8);
+}
+
+.section__header--split {
+	align-items: end;
+	grid-template-columns: 1fr auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-heading);
+	font-weight: 700;
+	line-height: 0.95;
+	letter-spacing: 0;
+	text-wrap: balance;
+}
+
+h1 {
+	font-size: clamp(3.25rem, 12vw, 9.5rem);
+}
+
+h2 {
+	font-size: clamp(2.4rem, 7vw, 5.7rem);
+}
+
+h3 {
+	font-size: clamp(1.55rem, 3vw, 2.7rem);
+}
+
+h4 {
+	font-size: 1.2rem;
+}
+
+p {
+	color: var(--muted);
+	max-width: 66ch;
+}
+
+.eyebrow {
+	display: inline-flex;
+	width: fit-content;
+	align-items: center;
+	gap: var(--space-2);
+	padding: 0.45rem 0.75rem;
+	border: var(--border);
+	border-radius: var(--radius-xs);
+	background: var(--lime);
+	box-shadow: var(--shadow-sm);
+	font-size: 0.78rem;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+
+.grid {
+	display: grid;
+	gap: var(--space-6);
+}
+
+.grid--2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid--3 {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid--4 {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.split {
+	display: grid;
+	grid-template-columns: 1.05fr 0.95fr;
+	gap: clamp(28px, 5vw, 68px);
+	align-items: center;
+}
+
+.page-hero {
+	padding: 142px 0 56px;
+}
+
+.page-hero__inner {
+	display: grid;
+	gap: var(--space-5);
+}
+
+.page-hero__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-3);
+}
+
+.media-frame {
+	position: relative;
+	overflow: hidden;
+	border: var(--border);
+	border-radius: var(--radius-sm);
+	box-shadow: var(--shadow-lg);
+	background: var(--surface-strong);
+}
+
+.media-frame img {
+	aspect-ratio: 4 / 5;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.empty-state {
+	border: var(--border);
+	border-radius: var(--radius-sm);
+	background: var(--surface);
+	box-shadow: var(--shadow-md);
+	padding: var(--space-8);
+	text-align: center;
+}
+
+.empty-state p {
+	margin: 0.75rem auto 1.5rem;
+}
+
+@media (max-width: 900px) {
+	.grid--4,
+	.grid--3,
+	.grid--2,
+	.split,
+	.section__header--split {
+		grid-template-columns: 1fr;
+	}
+}

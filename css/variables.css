@@ -1,0 +1,52 @@
+:root {
+	--font-heading: "Clash Display", "Arial Black", sans-serif;
+	--font-body: "General Sans", Inter, system-ui, sans-serif;
+	--bg: #fff7ee;
+	--surface: #ffffff;
+	--surface-strong: #f8e5d4;
+	--ink: #111111;
+	--muted: #5f5a55;
+	--line: #111111;
+	--pink: #ff5d9e;
+	--lime: #d7ff47;
+	--blue: #7bdff2;
+	--apricot: #ffb36b;
+	--violet: #c8b6ff;
+	--success: #1f9d66;
+	--danger: #e84d5b;
+	--radius-xs: 4px;
+	--radius-sm: 8px;
+	--radius-md: 14px;
+	--radius-lg: 22px;
+	--border: 3px solid var(--line);
+	--shadow-sm: 4px 4px 0 var(--line);
+	--shadow-md: 7px 7px 0 var(--line);
+	--shadow-lg: 12px 12px 0 var(--line);
+	--space-1: 0.25rem;
+	--space-2: 0.5rem;
+	--space-3: 0.75rem;
+	--space-4: 1rem;
+	--space-5: 1.25rem;
+	--space-6: 1.5rem;
+	--space-8: 2rem;
+	--space-10: 2.5rem;
+	--space-12: 3rem;
+	--space-16: 4rem;
+	--space-20: 5rem;
+	--container: 1180px;
+	--ease: cubic-bezier(0.16, 1, 0.3, 1);
+	--fast: 180ms var(--ease);
+	--normal: 320ms var(--ease);
+}
+
+[data-theme="dark"] {
+	--bg: #12100f;
+	--surface: #1f1b18;
+	--surface-strong: #2a241f;
+	--ink: #fff7ee;
+	--muted: #c9bfb4;
+	--line: #fff7ee;
+	--shadow-sm: 4px 4px 0 #fff7ee;
+	--shadow-md: 7px 7px 0 #fff7ee;
+	--shadow-lg: 12px 12px 0 #fff7ee;
+}

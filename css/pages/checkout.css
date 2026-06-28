@@ -1,0 +1,25 @@
+.checkout-form {
+	display: grid;
+	gap: var(--space-5);
+	border: var(--border);
+	border-radius: var(--radius-sm);
+	background: var(--surface);
+	box-shadow: var(--shadow-md);
+	padding: var(--space-6);
+}
+
+.form-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--space-4);
+}
+
+.field--full {
+	grid-column: 1 / -1;
+}
+
+@media (max-width: 720px) {
+	.form-grid {
+		grid-template-columns: 1fr;
+	}
+}

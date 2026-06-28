@@ -1,0 +1,98 @@
+[
+	{
+		"id": 1,
+		"name": "Cloud Touch Cleanser",
+		"category": "Cleanser",
+		"price": 799,
+		"rating": 4.9,
+		"badge": "New",
+		"image": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=80",
+		"description": "A cushion-soft daily cleanser that removes makeup and city residue without stripping the skin barrier.",
+		"routine": "AM + PM",
+		"skin": "All skin"
+	},
+	{
+		"id": 2,
+		"name": "Glass Glow Serum",
+		"category": "Serum",
+		"price": 1299,
+		"rating": 4.8,
+		"badge": "Best Seller",
+		"image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=80",
+		"description": "A brightening serum with niacinamide, peptides, and pearlescent hydration for fresh, even radiance.",
+		"routine": "AM",
+		"skin": "Dullness"
+	},
+	{
+		"id": 3,
+		"name": "Velvet Barrier Cream",
+		"category": "Moisturizer",
+		"price": 999,
+		"rating": 4.7,
+		"badge": "Trending",
+		"image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=80",
+		"description": "A plush moisturizer that seals water in with ceramides, squalane, and a soft-touch finish.",
+		"routine": "AM + PM",
+		"skin": "Dry skin"
+	},
+	{
+		"id": 4,
+		"name": "SPF Daily Shield",
+		"category": "Sunscreen",
+		"price": 899,
+		"rating": 4.8,
+		"badge": "SPF 50",
+		"image": "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=900&q=80",
+		"description": "A broad-spectrum SPF 50 fluid with an invisible finish that layers cleanly under makeup.",
+		"routine": "AM",
+		"skin": "All skin"
+	},
+	{
+		"id": 5,
+		"name": "Silk Matte Foundation",
+		"category": "Makeup",
+		"price": 1499,
+		"rating": 4.9,
+		"badge": "Hot",
+		"image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80",
+		"description": "A buildable complexion tint with flexible coverage, breathable wear, and a real-skin matte finish.",
+		"routine": "Anytime",
+		"skin": "Combination"
+	},
+	{
+		"id": 6,
+		"name": "Bloom Lip Tint",
+		"category": "Lips",
+		"price": 699,
+		"rating": 4.6,
+		"badge": "Vegan",
+		"image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=900&q=80",
+		"description": "A sheer, juicy tint that melts into lips with glossy color and non-sticky comfort.",
+		"routine": "Anytime",
+		"skin": "All skin"
+	},
+	{
+		"id": 7,
+		"name": "Vitamin C Booster",
+		"category": "Treatment",
+		"price": 1399,
+		"rating": 4.9,
+		"badge": "Glow",
+		"image": "https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=900&q=80",
+		"description": "A concentrated antioxidant treatment designed to target uneven tone and revive tired skin.",
+		"routine": "AM",
+		"skin": "Dark spots"
+	},
+	{
+		"id": 8,
+		"name": "Night Repair Cream",
+		"category": "Night Care",
+		"price": 1699,
+		"rating": 4.8,
+		"badge": "Premium",
+		"image": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=900&q=80",
+		"description": "An overnight recovery cream with fermented botanicals, lipids, and slow-release hydration.",
+		"routine": "PM",
+		"skin": "Stressed skin"
+	}
+]

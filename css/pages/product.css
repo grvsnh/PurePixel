@@ -1,0 +1,28 @@
+.product-detail {
+	display: grid;
+	grid-template-columns: 0.95fr 1.05fr;
+	gap: clamp(28px, 6vw, 76px);
+	align-items: center;
+	padding: 145px 0 80px;
+}
+
+.product-detail__content,
+.product-detail__buy {
+	display: grid;
+	gap: var(--space-5);
+}
+
+.product-detail__meta,
+.product-detail__buy {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--space-3);
+}
+
+@media (max-width: 900px) {
+	.product-detail {
+		grid-template-columns: 1fr;
+		padding-top: 125px;
+	}
+}

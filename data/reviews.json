@@ -1,0 +1,20 @@
+[
+	{
+		"name": "Aarohi M.",
+		"role": "Editorial stylist",
+		"rating": 5,
+		"quote": "The textures feel expensive, but the site experience is the real flex. It is fast, polished, and fun to shop."
+	},
+	{
+		"name": "Maya R.",
+		"role": "Creative producer",
+		"rating": 5,
+		"quote": "Pure Pixel turns routine building into something visual and calming. The serum and SPF pairing is my morning default."
+	},
+	{
+		"name": "Naina S.",
+		"role": "Product designer",
+		"rating": 5,
+		"quote": "I love the bold interface details. It feels luxury without becoming cold, and every interaction has a little snap."
+	}
+]

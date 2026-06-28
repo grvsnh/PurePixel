@@ -1,0 +1,21 @@
+.about-values {
+	counter-reset: value;
+}
+
+.value-card {
+	border: var(--border);
+	border-radius: var(--radius-sm);
+	background: var(--surface);
+	box-shadow: var(--shadow-md);
+	padding: var(--space-6);
+}
+
+.value-card::before {
+	counter-increment: value;
+	content: "0" counter(value);
+	display: inline-flex;
+	margin-bottom: var(--space-5);
+	font-family: var(--font-heading);
+	font-size: 3rem;
+	line-height: 1;
+}

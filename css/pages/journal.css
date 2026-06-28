@@ -1,0 +1,12 @@
+.article-feature {
+	border-block: var(--border);
+	background: var(--surface);
+}
+
+.article-feature img {
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	border: var(--border);
+	border-radius: var(--radius-sm);
+	box-shadow: var(--shadow-md);
+}

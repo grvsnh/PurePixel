@@ -1,0 +1,36 @@
+.reveal {
+	opacity: 0;
+	transform: translateY(28px);
+	transition:
+		opacity 700ms var(--ease),
+		transform 700ms var(--ease);
+}
+
+.reveal.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@keyframes floaty {
+	0%,
+	100% {
+		transform: translateY(0) rotate(-2deg);
+	}
+	50% {
+		transform: translateY(-12px) rotate(2deg);
+	}
+}
+
+.floaty {
+	animation: floaty 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+}

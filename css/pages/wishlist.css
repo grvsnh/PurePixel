@@ -1,0 +1,9 @@
+.wishlist-note {
+	border: var(--border);
+	border-radius: var(--radius-sm);
+	background: var(--lime);
+	color: #111;
+	box-shadow: var(--shadow-md);
+	padding: var(--space-5);
+	margin-bottom: var(--space-8);
+}

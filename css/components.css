@@ -13,7 +13,10 @@
 	z-index: 9999;
 	display: grid;
 	place-items: center;
-	background: var(--bg);
+	background:
+		radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--pink), transparent 72%), transparent 28%),
+		radial-gradient(circle at 60% 58%, color-mix(in srgb, var(--blue), transparent 78%), transparent 32%),
+		var(--bg);
 	transition:
 		opacity var(--normal),
 		visibility var(--normal);
@@ -25,6 +28,9 @@
 }
 
 .loader__mark {
+	display: inline-flex;
+	align-items: center;
+	gap: clamp(0.4rem, 1.6vw, 1rem);
 	border: var(--border);
 	background: var(--surface);
 	box-shadow: var(--shadow-lg);
@@ -34,6 +40,16 @@
 	line-height: 1;
 	text-transform: uppercase;
 	transform: rotate(-1deg);
+	animation: loaderPop 1200ms var(--ease) both;
+}
+
+.loader__dot,
+.brand__dot {
+	display: inline-block;
+	color: var(--pink);
+	filter: drop-shadow(0 0 10px color-mix(in srgb, var(--pink), transparent 35%));
+	transform-origin: center;
+	animation: pixelPulse 2.4s var(--ease) infinite;
 }
 
 .site-header {
@@ -72,7 +88,8 @@
 }
 
 .brand__dot {
-	color: var(--pink);
+	margin-inline: 0.05rem;
+	font-size: 0.68em;
 }
 
 .navbar__links {
@@ -104,6 +121,11 @@
 .navbar__links a:hover::after,
 .navbar__links a:focus-visible::after {
 	transform: scaleX(1);
+}
+
+.brand:hover .brand__dot,
+.brand:focus-visible .brand__dot {
+	animation-duration: 900ms;
 }
 
 .navbar__actions {
@@ -295,6 +317,42 @@
 		box-shadow var(--fast);
 }
 
+.product-card {
+	isolation: isolate;
+}
+
+.product-card::before {
+	position: absolute;
+	inset: 10px;
+	z-index: -1;
+	border-radius: var(--radius-xs);
+	background: color-mix(in srgb, var(--pink), transparent 88%);
+	content: "";
+	opacity: 0;
+	transform: rotate(-1deg) scale(0.98);
+	transition:
+		opacity var(--normal),
+		transform var(--normal);
+}
+
+.product-card:hover::before {
+	opacity: 1;
+	transform: rotate(1deg) scale(1);
+}
+
+[data-theme="dark"] .product-card,
+[data-theme="dark"] .journal-card,
+[data-theme="dark"] .routine-card,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .testimonial-card,
+[data-theme="dark"] .summary-card {
+	background:
+		linear-gradient(145deg, color-mix(in srgb, var(--surface), #ffffff 7%), var(--surface));
+	box-shadow:
+		0 0 0 1px color-mix(in srgb, var(--line), transparent 80%),
+		var(--shadow-md);
+}
+
 .product-card:hover,
 .journal-card:hover {
 	transform: translate(-4px, -4px);
@@ -306,6 +364,10 @@
 	border: var(--border);
 	border-radius: var(--radius-xs);
 	background: var(--surface-strong);
+}
+
+[data-theme="dark"] .product-card__media {
+	background: #fbf4ea;
 }
 
 .product-card__media img {
@@ -343,6 +405,11 @@
 	font-size: 0.72rem;
 	font-weight: 900;
 	text-transform: uppercase;
+}
+
+[data-theme="dark"] .pill {
+	background: var(--butter);
+	color: #111;
 }
 
 .price {

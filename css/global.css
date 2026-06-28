@@ -87,9 +87,15 @@ p {
 	border-radius: var(--radius-xs);
 	background: var(--lime);
 	box-shadow: var(--shadow-sm);
+	color: #111;
 	font-size: 0.78rem;
 	font-weight: 800;
 	text-transform: uppercase;
+}
+
+[data-theme="dark"] .eyebrow {
+	background: var(--butter);
+	color: #111;
 }
 
 .grid {

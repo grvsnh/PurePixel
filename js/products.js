@@ -146,10 +146,14 @@ const ProductStore = {
 	renderFeatured() {
 		const target = Utils.$("#featured-products");
 		if (!target) return;
-		target.innerHTML = this.products
-			.slice(0, 4)
-			.map((product) => this.card(product))
-			.join("");
+		const products = this.products.slice(0, 4);
+		target.innerHTML = products.length
+			? products.map((product) => this.card(product)).join("")
+			: `<div class="empty-state reveal"><h3>The shelf is loading</h3><p>Refresh the page or open the site from the local server so product data can load.</p><a class="btn btn--pink" href="shop.html">Visit Shop</a></div>`;
+		requestAnimationFrame(() => {
+			Animations?.refresh();
+			window.lucide?.createIcons();
+		});
 	},
 
 	renderShop() {

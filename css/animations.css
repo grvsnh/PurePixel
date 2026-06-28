@@ -11,6 +11,43 @@
 	transform: translateY(0);
 }
 
+@keyframes pixelPulse {
+	0% {
+		color: var(--pink);
+		transform: scale(1);
+		filter: drop-shadow(0 0 8px color-mix(in srgb, var(--pink), transparent 45%));
+	}
+	33% {
+		color: var(--blue);
+		transform: scale(1.32) rotate(8deg);
+		filter: drop-shadow(0 0 12px color-mix(in srgb, var(--blue), transparent 25%));
+	}
+	66% {
+		color: var(--butter);
+		transform: scale(0.92) rotate(-8deg);
+		filter: drop-shadow(0 0 12px color-mix(in srgb, var(--butter), transparent 20%));
+	}
+	100% {
+		color: var(--pink);
+		transform: scale(1);
+		filter: drop-shadow(0 0 8px color-mix(in srgb, var(--pink), transparent 45%));
+	}
+}
+
+@keyframes loaderPop {
+	0% {
+		opacity: 0;
+		transform: translateY(18px) rotate(-2deg) scale(0.96);
+	}
+	45% {
+		opacity: 1;
+		transform: translateY(0) rotate(1deg) scale(1.03);
+	}
+	100% {
+		transform: translateY(0) rotate(-1deg) scale(1);
+	}
+}
+
 @keyframes floaty {
 	0%,
 	100% {

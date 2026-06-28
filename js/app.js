@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", async () => {
 	Theme.init();
 	Wishlist.init();
+	Animations.init();
 	await ProductStore.init();
 	Cart.init();
 	Wishlist.render();
-	Animations.init();
 	App.init();
 });
 

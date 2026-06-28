@@ -1,19 +1,21 @@
 :root {
 	--font-heading: "Clash Display", "Arial Black", sans-serif;
 	--font-body: "General Sans", Inter, system-ui, sans-serif;
-	--bg: #fff7ee;
+	--bg: #fbf4ea;
 	--surface: #ffffff;
-	--surface-strong: #f8e5d4;
-	--ink: #111111;
-	--muted: #5f5a55;
-	--line: #111111;
-	--pink: #ff5d9e;
-	--lime: #d7ff47;
-	--blue: #7bdff2;
-	--apricot: #ffb36b;
-	--violet: #c8b6ff;
-	--success: #1f9d66;
-	--danger: #e84d5b;
+	--surface-strong: #eadfd3;
+	--ink: #151313;
+	--muted: #665f59;
+	--line: #151313;
+	--pink: #e85d75;
+	--lime: #d7df75;
+	--blue: #4f7cff;
+	--apricot: #f0a35e;
+	--violet: #a990f5;
+	--sage: #9fb7a3;
+	--butter: #f6dc75;
+	--success: #247f5a;
+	--danger: #ca3f55;
 	--radius-xs: 4px;
 	--radius-sm: 8px;
 	--radius-md: 14px;
@@ -40,13 +42,19 @@
 }
 
 [data-theme="dark"] {
-	--bg: #12100f;
-	--surface: #1f1b18;
-	--surface-strong: #2a241f;
-	--ink: #fff7ee;
-	--muted: #c9bfb4;
-	--line: #fff7ee;
-	--shadow-sm: 4px 4px 0 #fff7ee;
-	--shadow-md: 7px 7px 0 #fff7ee;
-	--shadow-lg: 12px 12px 0 #fff7ee;
+	--bg: #151313;
+	--surface: #211e1b;
+	--surface-strong: #302922;
+	--ink: #fbf4ea;
+	--muted: #cfc4b7;
+	--line: #fbf4ea;
+	--pink: #ff7d92;
+	--lime: #dce987;
+	--blue: #82a0ff;
+	--apricot: #ffc078;
+	--sage: #b4cbb8;
+	--butter: #ffe38a;
+	--shadow-sm: 4px 4px 0 #fbf4ea;
+	--shadow-md: 7px 7px 0 #fbf4ea;
+	--shadow-lg: 12px 12px 0 #fbf4ea;
 }

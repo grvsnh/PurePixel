@@ -12,9 +12,18 @@ const Animations = {
 	loader() {
 		const loader = Utils.$("#loader");
 		if (!loader) return;
-		window.addEventListener("load", () => {
+
+		const hide = () => {
 			setTimeout(() => loader.classList.add("is-hidden"), 250);
-		});
+		};
+
+		if (document.readyState === "complete") {
+			hide();
+			return;
+		}
+
+		window.addEventListener("load", hide, { once: true });
+		setTimeout(hide, 1800);
 	},
 
 	navbar() {

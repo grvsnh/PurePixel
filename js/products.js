@@ -11,11 +11,65 @@ const ProductStore = {
 	async load() {
 		try {
 			const response = await fetch("data/products.json");
+			if (!response.ok) throw new Error(`Product request failed: ${response.status}`);
 			this.products = await response.json();
 		} catch (error) {
 			console.error("Products could not be loaded.", error);
-			this.products = [];
+			this.products = this.fallbackProducts();
 		}
+	},
+
+	fallbackProducts() {
+		return [
+			{
+				id: 1,
+				name: "Cloud Touch Cleanser",
+				category: "Cleanser",
+				price: 799,
+				rating: 4.9,
+				badge: "New",
+				image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=80",
+				description: "A cushion-soft daily cleanser that removes makeup and city residue without stripping the skin barrier.",
+				routine: "AM + PM",
+				skin: "All skin",
+			},
+			{
+				id: 2,
+				name: "Glass Glow Serum",
+				category: "Serum",
+				price: 1299,
+				rating: 4.8,
+				badge: "Best Seller",
+				image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=80",
+				description: "A brightening serum with niacinamide, peptides, and pearlescent hydration for fresh, even radiance.",
+				routine: "AM",
+				skin: "Dullness",
+			},
+			{
+				id: 3,
+				name: "Velvet Barrier Cream",
+				category: "Moisturizer",
+				price: 999,
+				rating: 4.7,
+				badge: "Trending",
+				image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=80",
+				description: "A plush moisturizer that seals water in with ceramides, squalane, and a soft-touch finish.",
+				routine: "AM + PM",
+				skin: "Dry skin",
+			},
+			{
+				id: 4,
+				name: "SPF Daily Shield",
+				category: "Sunscreen",
+				price: 899,
+				rating: 4.8,
+				badge: "SPF 50",
+				image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=900&q=80",
+				description: "A broad-spectrum SPF 50 fluid with an invisible finish that layers cleanly under makeup.",
+				routine: "AM",
+				skin: "All skin",
+			},
+		];
 	},
 
 	all() {

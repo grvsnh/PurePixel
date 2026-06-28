@@ -1,7 +1,13 @@
 @import url("https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600,700&display=swap");
 
 body {
-	background: var(--bg);
+	background:
+		linear-gradient(
+			135deg,
+			color-mix(in srgb, var(--surface), transparent 76%) 0 25%,
+			transparent 25% 100%
+		),
+		var(--bg);
 	color: var(--ink);
 	font-family: var(--font-body);
 	line-height: 1.65;

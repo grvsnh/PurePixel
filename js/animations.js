@@ -6,6 +6,7 @@ const Animations = {
 		this.navbar();
 		this.progress();
 		this.backToTop();
+		this.cursor();
 		this.refresh();
 	},
 
@@ -62,6 +63,64 @@ const Animations = {
 			},
 			{ passive: true },
 		);
+	},
+
+	cursor() {
+		if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+			return;
+		}
+
+		const dot = document.createElement("span");
+		const ring = document.createElement("span");
+		dot.className = "cursor-dot";
+		ring.className = "cursor-ring";
+		document.body.append(dot, ring);
+
+		const pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+		const ringPosition = { x: pointer.x, y: pointer.y };
+		let visible = false;
+
+		const setActive = (active) => {
+			dot.classList.toggle("is-active", active);
+			ring.classList.toggle("is-active", active);
+		};
+
+		const show = () => {
+			if (visible) return;
+			visible = true;
+			dot.classList.add("is-visible");
+			ring.classList.add("is-visible");
+		};
+
+		const hide = () => {
+			visible = false;
+			dot.classList.remove("is-visible");
+			ring.classList.remove("is-visible");
+		};
+
+		window.addEventListener(
+			"pointermove",
+			(event) => {
+				pointer.x = event.clientX;
+				pointer.y = event.clientY;
+				show();
+				const target = event.target.closest?.("a, button, input, select, textarea, .product-card, .media-frame");
+				setActive(Boolean(target));
+			},
+			{ passive: true },
+		);
+		window.addEventListener("pointerleave", hide);
+		window.addEventListener("blur", hide);
+
+		const render = () => {
+			ringPosition.x += (pointer.x - ringPosition.x) * 0.18;
+			ringPosition.y += (pointer.y - ringPosition.y) * 0.18;
+			dot.style.transform = `translate3d(${pointer.x - 5.5}px, ${pointer.y - 5.5}px, 0)`;
+			ring.style.transform = `translate3d(${ringPosition.x - ring.offsetWidth / 2}px, ${ringPosition.y - ring.offsetHeight / 2}px, 0)`;
+			requestAnimationFrame(render);
+		};
+
+		render();
 	},
 
 	refresh() {

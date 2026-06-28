@@ -14,8 +14,8 @@
 	display: grid;
 	place-items: center;
 	background:
-		radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--pink), transparent 72%), transparent 28%),
-		radial-gradient(circle at 60% 58%, color-mix(in srgb, var(--blue), transparent 78%), transparent 32%),
+		radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--pink), transparent 76%), transparent 28%),
+		radial-gradient(circle at 60% 58%, color-mix(in srgb, var(--blue), transparent 82%), transparent 34%),
 		var(--bg);
 	transition:
 		opacity var(--normal),
@@ -52,6 +52,58 @@
 	animation: pixelPulse 2.4s var(--ease) infinite;
 }
 
+.cursor-dot,
+.cursor-ring {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10000;
+	pointer-events: none;
+	opacity: 0;
+	will-change: transform;
+}
+
+.cursor-dot {
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background: var(--pink);
+	box-shadow: 0 0 18px color-mix(in srgb, var(--pink), transparent 15%);
+	transition:
+		opacity 180ms var(--ease),
+		background 240ms var(--ease),
+		box-shadow 240ms var(--ease);
+}
+
+.cursor-ring {
+	width: 38px;
+	height: 38px;
+	border: 1.5px solid color-mix(in srgb, var(--ink), transparent 20%);
+	border-radius: 50%;
+	mix-blend-mode: difference;
+	transition:
+		opacity 180ms var(--ease),
+		border-color 240ms var(--ease),
+		width 260ms var(--ease),
+		height 260ms var(--ease);
+}
+
+.cursor-dot.is-visible,
+.cursor-ring.is-visible {
+	opacity: 1;
+}
+
+.cursor-dot.is-active {
+	background: var(--blue);
+	box-shadow: 0 0 22px color-mix(in srgb, var(--blue), transparent 8%);
+}
+
+.cursor-ring.is-active {
+	width: 54px;
+	height: 54px;
+	border-color: color-mix(in srgb, var(--pink), transparent 10%);
+}
+
 .site-header {
 	position: fixed;
 	inset: 18px 0 auto;
@@ -66,13 +118,17 @@
 	width: min(calc(100% - 32px), 1240px);
 	margin-inline: auto;
 	padding: 0.7rem;
-	transition: var(--normal);
+	transition:
+		background var(--normal),
+		border-color var(--normal),
+		box-shadow var(--normal),
+		transform var(--normal);
 }
 
 .navbar.is-scrolled {
 	border: var(--border);
 	border-radius: var(--radius-sm);
-	background: color-mix(in srgb, var(--surface), transparent 5%);
+	background: color-mix(in srgb, var(--surface), transparent 7%);
 	box-shadow: var(--shadow-md);
 	backdrop-filter: blur(16px);
 }
@@ -147,15 +203,16 @@
 	box-shadow: var(--shadow-sm);
 	cursor: pointer;
 	transition:
-		transform var(--fast),
-		box-shadow var(--fast),
-		background var(--fast);
+		transform 260ms var(--ease),
+		box-shadow 260ms var(--ease),
+		background 260ms var(--ease),
+		color 260ms var(--ease);
 }
 
 .icon-btn:hover,
 .menu-btn:hover,
 .btn:hover {
-	transform: translate(-3px, -3px);
+	transform: translate(-2px, -2px);
 	box-shadow: var(--shadow-md);
 }
 
@@ -247,16 +304,20 @@
 	font-weight: 900;
 	text-transform: uppercase;
 	cursor: pointer;
-	transition: var(--fast);
+	transition:
+		transform 260ms var(--ease),
+		box-shadow 260ms var(--ease),
+		background 260ms var(--ease),
+		color 260ms var(--ease);
 }
 
 .btn--pink {
 	background: var(--pink);
-	color: #111;
+	color: #171311;
 }
 .btn--lime {
 	background: var(--lime);
-	color: #111;
+	color: #171311;
 }
 .btn--blue {
 	background: var(--blue);
@@ -326,7 +387,7 @@
 	inset: 10px;
 	z-index: -1;
 	border-radius: var(--radius-xs);
-	background: color-mix(in srgb, var(--pink), transparent 88%);
+	background: color-mix(in srgb, var(--pink), transparent 90%);
 	content: "";
 	opacity: 0;
 	transform: rotate(-1deg) scale(0.98);
@@ -347,9 +408,9 @@
 [data-theme="dark"] .testimonial-card,
 [data-theme="dark"] .summary-card {
 	background:
-		linear-gradient(145deg, color-mix(in srgb, var(--surface), #ffffff 7%), var(--surface));
+		linear-gradient(145deg, color-mix(in srgb, var(--surface), #ffffff 5%), var(--surface));
 	box-shadow:
-		0 0 0 1px color-mix(in srgb, var(--line), transparent 80%),
+		0 0 0 1px color-mix(in srgb, var(--line), transparent 86%),
 		var(--shadow-md);
 }
 
@@ -400,8 +461,8 @@
 	padding: 0.35rem 0.65rem;
 	border: var(--border);
 	border-radius: 999px;
-	background: var(--lime);
-	color: #111;
+	background: var(--butter);
+	color: #171311;
 	font-size: 0.72rem;
 	font-weight: 900;
 	text-transform: uppercase;
@@ -430,8 +491,8 @@
 	gap: var(--space-6);
 	border: var(--border);
 	border-radius: var(--radius-sm);
-	background: var(--sage);
-	color: #111;
+	background: color-mix(in srgb, var(--sage), var(--surface) 18%);
+	color: #171311;
 	box-shadow: var(--shadow-lg);
 	padding: clamp(1.4rem, 5vw, 3.6rem);
 }

@@ -1,13 +1,16 @@
 .reveal {
 	opacity: 0;
-	transform: translateY(28px);
+	filter: blur(8px);
+	transform: translateY(26px);
 	transition:
-		opacity 700ms var(--ease),
-		transform 700ms var(--ease);
+		opacity 820ms var(--ease),
+		filter 820ms var(--ease),
+		transform 820ms var(--ease);
 }
 
 .reveal.is-visible {
 	opacity: 1;
+	filter: blur(0);
 	transform: translateY(0);
 }
 
@@ -19,12 +22,12 @@
 	}
 	33% {
 		color: var(--blue);
-		transform: scale(1.32) rotate(8deg);
+		transform: scale(1.18) rotate(6deg);
 		filter: drop-shadow(0 0 12px color-mix(in srgb, var(--blue), transparent 25%));
 	}
 	66% {
 		color: var(--butter);
-		transform: scale(0.92) rotate(-8deg);
+		transform: scale(0.94) rotate(-6deg);
 		filter: drop-shadow(0 0 12px color-mix(in srgb, var(--butter), transparent 20%));
 	}
 	100% {

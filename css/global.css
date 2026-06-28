@@ -1,20 +1,33 @@
-@import url("https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600,700&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700,900&display=swap");
 
 body {
 	background:
-		linear-gradient(
-			135deg,
-			color-mix(in srgb, var(--surface), transparent 76%) 0 25%,
-			transparent 25% 100%
-		),
+		radial-gradient(circle at 16% 12%, color-mix(in srgb, var(--pink), transparent 88%), transparent 28rem),
+		radial-gradient(circle at 88% 28%, color-mix(in srgb, var(--blue), transparent 90%), transparent 32rem),
 		var(--bg);
 	color: var(--ink);
 	font-family: var(--font-body);
-	line-height: 1.65;
+	font-size: 1rem;
+	font-weight: 500;
+	line-height: 1.72;
 	overflow-x: hidden;
 	transition:
 		background var(--normal),
 		color var(--normal);
+}
+
+@media (hover: hover) and (pointer: fine) {
+	body {
+		cursor: none;
+	}
+
+	body a,
+	body button,
+	body input,
+	body select,
+	body textarea {
+		cursor: none;
+	}
 }
 
 body.menu-open {
@@ -74,6 +87,8 @@ h4 {
 
 p {
 	color: var(--muted);
+	font-size: clamp(1rem, 1.15vw, 1.08rem);
+	font-weight: 500;
 	max-width: 66ch;
 }
 
@@ -85,11 +100,12 @@ p {
 	padding: 0.45rem 0.75rem;
 	border: var(--border);
 	border-radius: var(--radius-xs);
-	background: var(--lime);
+	background: var(--butter);
 	box-shadow: var(--shadow-sm);
 	color: #111;
 	font-size: 0.78rem;
-	font-weight: 800;
+	font-weight: 900;
+	letter-spacing: 0.04em;
 	text-transform: uppercase;
 }
 

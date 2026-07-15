@@ -54,6 +54,14 @@
 	box-shadow: var(--shadow-md);
 	padding: var(--space-5);
 	overflow: hidden;
+	transition:
+		transform var(--fast),
+		box-shadow var(--fast);
+}
+
+.category-card:hover {
+	transform: translate(-3px, -3px);
+	box-shadow: var(--shadow-lg);
 }
 
 .category-card:nth-child(1) {
@@ -68,6 +76,24 @@
 }
 .category-card:nth-child(4) {
 	background: var(--pink);
+	color: #171311;
+}
+
+[data-theme="dark"] .category-card:nth-child(1) {
+	background: color-mix(in srgb, var(--sage), var(--surface) 70%);
+	color: var(--ink);
+}
+[data-theme="dark"] .category-card:nth-child(2) {
+	background: color-mix(in srgb, var(--blue), var(--surface) 55%);
+	color: var(--ink);
+}
+[data-theme="dark"] .category-card:nth-child(3) {
+	background: color-mix(in srgb, var(--butter), var(--surface) 70%);
+	color: var(--ink);
+}
+[data-theme="dark"] .category-card:nth-child(4) {
+	background: color-mix(in srgb, var(--pink), var(--surface) 55%);
+	color: var(--ink);
 }
 
 .routine-band {
@@ -82,6 +108,12 @@
 	background: var(--surface);
 	box-shadow: var(--shadow-lg);
 	padding: clamp(1.4rem, 5vw, 3rem);
+}
+
+[data-theme="dark"] .quiz-panel,
+[data-theme="dark"] .newsletter-panel {
+	background: var(--surface-strong);
+	box-shadow: var(--shadow-md);
 }
 
 .newsletter-panel form {

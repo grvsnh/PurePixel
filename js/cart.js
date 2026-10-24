@@ -3,7 +3,18 @@ const Cart = {
 	items: [],
 
 	init() {
-		this.items = Utils.getStorage(this.key, []);
+		const saved = Utils.getStorage(this.key, []);
+		this.items = Array.isArray(saved)
+			? saved.reduce((items, entry) => {
+					const id = Number(entry?.id);
+					const quantity = Math.floor(Number(entry?.quantity));
+					if (!id || quantity < 1) return items;
+					const existing = items.find((item) => item.id === id);
+					if (existing) existing.quantity += quantity;
+					else items.push({ id, quantity });
+					return items;
+				}, [])
+			: [];
 		this.bind();
 		this.render();
 		this.updateBadge();
@@ -25,15 +36,23 @@ const Cart = {
 	},
 
 	add(id) {
+		const product = ProductStore.getById(id);
+		if (!product) {
+			Utils.toast("That product is unavailable right now.", "error");
+			return;
+		}
 		const item = this.items.find((entry) => entry.id === id);
 		if (item) item.quantity += 1;
 		else this.items.push({ id, quantity: 1 });
 		this.save();
+		Utils.toast(`${product.name} added to your bag.`);
 	},
 
 	remove(id) {
+		const product = ProductStore.getById(id);
 		this.items = this.items.filter((entry) => entry.id !== id);
 		this.save();
+		if (product) Utils.toast(`${product.name} removed from your bag.`);
 	},
 
 	change(id, amount) {
@@ -44,9 +63,11 @@ const Cart = {
 		else this.save();
 	},
 
-	clear() {
+	clear(silent = false) {
+		if (!this.items.length) return;
 		this.items = [];
 		this.save();
+		if (!silent) Utils.toast("Your bag is clear.");
 	},
 
 	products() {
@@ -105,10 +126,10 @@ const Cart = {
 						.map(
 							(product) => `
 					<article class="line-item">
-						<img src="${product.image}" alt="${product.name}" loading="lazy">
+						<img src="${Utils.escapeHTML(product.image)}" alt="${Utils.escapeHTML(product.name)}" data-fallback="${Utils.escapeHTML(product.name)}" loading="lazy">
 						<div>
-							<h3>${product.name}</h3>
-							<p>${product.category}</p>
+							<h3>${Utils.escapeHTML(product.name)}</h3>
+							<p>${Utils.escapeHTML(product.category)}</p>
 							<strong>${Utils.formatPrice(product.price)}</strong>
 						</div>
 						<div class="line-item__qty">
@@ -126,6 +147,7 @@ const Cart = {
 
 		if (summary) this.renderSummary(summary);
 		if (checkout) this.renderSummary(checkout);
+		if (list) Utils.bindImageFallbacks(list);
 		window.lucide?.createIcons();
 	},
 };

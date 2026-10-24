@@ -18,6 +18,13 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
+button,
+input,
+select,
+textarea {
+	border-radius: 0;
+}
+
 img,
 picture,
 video,
@@ -50,6 +57,6 @@ ol {
 }
 
 :focus-visible {
-	outline: 4px solid var(--blue);
+	outline: 4px solid var(--pink);
 	outline-offset: 3px;
 }

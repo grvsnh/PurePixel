@@ -14,6 +14,17 @@
 	transform: translateY(0);
 }
 
+@keyframes toastIn {
+	from {
+		opacity: 0;
+		transform: translateY(12px) rotate(1deg);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0) rotate(0);
+	}
+}
+
 @keyframes pixelPulse {
 	0% {
 		color: var(--pink);

@@ -3,7 +3,16 @@
 	grid-template-columns: 1fr 220px 220px;
 	gap: var(--space-4);
 	align-items: end;
+	padding: var(--space-5);
+	border: var(--border);
+	border-radius: var(--radius-md);
+	background: var(--surface);
+	box-shadow: var(--shadow-md);
 	margin-bottom: var(--space-8);
+}
+
+.shop-toolbar .field:first-child .input {
+	background: var(--lime);
 }
 
 .shop-meta {
@@ -12,6 +21,28 @@
 	align-items: center;
 	gap: var(--space-3);
 	margin-bottom: var(--space-5);
+	padding-inline: 0.25rem;
+}
+
+#shop-count {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	font-family: var(--font-heading);
+	font-size: 1.2rem;
+}
+
+#shop-count::before {
+	width: 0.65rem;
+	height: 0.65rem;
+	border: 2px solid var(--line);
+	border-radius: 50%;
+	background: var(--pink);
+	content: "";
+}
+
+#shop-grid {
+	align-items: stretch;
 }
 
 @media (max-width: 760px) {

@@ -7,3 +7,11 @@
 	padding: var(--space-5);
 	margin-bottom: var(--space-8);
 }
+
+.wishlist-note::before {
+	display: block;
+	margin-bottom: 0.25rem;
+	font-family: var(--font-heading);
+	font-size: 1.4rem;
+	content: "SAVE IT FOR LATER ✦";
+}

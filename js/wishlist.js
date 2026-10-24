@@ -3,7 +3,10 @@ const Wishlist = {
 	items: [],
 
 	init() {
-		this.items = Utils.getStorage(this.key, []);
+		const saved = Utils.getStorage(this.key, []);
+		this.items = Array.isArray(saved)
+			? saved.map(Number).filter((id, index, items) => id > 0 && items.indexOf(id) === index)
+			: [];
 		this.bind();
 		this.render();
 		this.updateBadge();
@@ -14,10 +17,18 @@ const Wishlist = {
 			const button = event.target.closest("[data-wishlist]");
 			if (!button) return;
 			this.toggle(Number(button.dataset.wishlist));
+			const saved = this.has(button.dataset.wishlist);
 			button.setAttribute(
 				"aria-pressed",
-				String(this.has(button.dataset.wishlist)),
+				String(saved),
 			);
+			button.setAttribute(
+				"aria-label",
+				saved ? "Remove from wishlist" : "Add to wishlist",
+			);
+			if (button.classList.contains("btn")) {
+				button.textContent = saved ? "Saved" : "Wishlist";
+			}
 			window.lucide?.createIcons();
 		});
 	},
@@ -28,11 +39,19 @@ const Wishlist = {
 
 	toggle(id) {
 		id = Number(id);
+		const product = ProductStore.getById(id);
+		if (!product) return;
+		const removing = this.has(id);
 		this.items = this.has(id)
 			? this.items.filter((item) => item !== id)
 			: [...this.items, id];
 		this.save();
 		this.render();
+		Utils.toast(
+			removing
+				? `${product.name} removed from your wishlist.`
+				: `${product.name} saved to your wishlist.`,
+		);
 	},
 
 	save() {
@@ -57,6 +76,7 @@ const Wishlist = {
 			? products.map((product) => ProductStore.card(product)).join("")
 			: `<div class="empty-state"><h3>Your wishlist is waiting</h3><p>Save your future shelf favorites and come back when the mood strikes.</p><a class="btn btn--pink" href="shop.html">Shop Products</a></div>`;
 		Animations.refresh();
+		Utils.bindImageFallbacks(target);
 		window.lucide?.createIcons();
 	},
 };

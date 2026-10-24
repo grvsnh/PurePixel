@@ -39,15 +39,17 @@ const Animations = {
 	progress() {
 		const bar = Utils.$("#scroll-progress");
 		if (!bar) return;
+		const update = () => {
+			const height =
+				document.documentElement.scrollHeight - window.innerHeight;
+			bar.style.width = `${height ? Math.min(100, (window.scrollY / height) * 100) : 0}%`;
+		};
 		window.addEventListener(
 			"scroll",
-			() => {
-				const height =
-					document.documentElement.scrollHeight - window.innerHeight;
-				bar.style.width = `${height ? (window.scrollY / height) * 100 : 0}%`;
-			},
+			update,
 			{ passive: true },
 		);
+		update();
 	},
 
 	backToTop() {
@@ -125,6 +127,12 @@ const Animations = {
 
 	refresh() {
 		this.observer?.disconnect();
+		if (!("IntersectionObserver" in window)) {
+			Utils.$$(".reveal").forEach((element) =>
+				element.classList.add("is-visible"),
+			);
+			return;
+		}
 		this.observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {

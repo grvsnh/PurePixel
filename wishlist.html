@@ -14,6 +14,7 @@
 		<link rel="stylesheet" href="css/pages/wishlist.css" />
 	</head>
 	<body>
+		<a class="skip-link" href="#main-content">Skip to content</a>
 		<div class="scroll-progress" id="scroll-progress"></div>
 		<header class="site-header">
 			<nav class="navbar" id="navbar" aria-label="Primary navigation">
@@ -52,6 +53,8 @@
 						id="menu-toggle"
 						type="button"
 						aria-label="Open menu"
+						aria-controls="mobile-menu"
+						aria-expanded="false"
 					>
 						<i data-lucide="menu"></i>
 					</button>
@@ -83,7 +86,7 @@
 				><a href="cart.html">Cart</a>
 			</div>
 		</aside>
-		<main>
+		<main id="main-content">
 			<section class="page-hero">
 				<div class="container page-hero__inner reveal">
 					<span class="eyebrow">Saved Shelf</span>

@@ -1,6 +1,7 @@
 .article-feature {
 	border-block: var(--border);
 	background: var(--surface);
+	box-shadow: inset 0 12px 0 color-mix(in srgb, var(--blue), transparent 60%), inset 0 -12px 0 color-mix(in srgb, var(--pink), transparent 75%);
 }
 
 .article-feature img {
@@ -8,5 +9,12 @@
 	object-fit: cover;
 	border: var(--border);
 	border-radius: var(--radius-sm);
+	box-shadow: var(--shadow-md);
+}
+
+.article-feature .split > div:last-child {
+	padding: clamp(1rem, 4vw, 3rem);
+	border: var(--border);
+	background: var(--lime);
 	box-shadow: var(--shadow-md);
 }

@@ -6,6 +6,19 @@
 	padding: 145px 0 80px;
 }
 
+.product-detail > .media-frame {
+	transform: rotate(-2deg);
+}
+
+.product-detail__content {
+	max-width: 620px;
+}
+
+.product-detail__content h1 {
+	font-size: clamp(3.1rem, 7vw, 6.8rem);
+	text-shadow: 5px 5px 0 color-mix(in srgb, var(--lime), transparent 25%);
+}
+
 .product-detail__content,
 .product-detail__buy {
 	display: grid;
@@ -18,6 +31,12 @@
 	flex-wrap: wrap;
 	align-items: center;
 	gap: var(--space-3);
+}
+
+.product-detail__buy {
+	margin-top: var(--space-4);
+	padding-top: var(--space-5);
+	border-top: 3px solid var(--line);
 }
 
 @media (max-width: 900px) {

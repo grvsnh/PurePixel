@@ -17,6 +17,7 @@
 		<link rel="stylesheet" href="css/pages/shop.css" />
 	</head>
 	<body>
+		<a class="skip-link" href="#main-content">Skip to content</a>
 		<div class="scroll-progress" id="scroll-progress"></div>
 		<header class="site-header">
 			<nav class="navbar" id="navbar" aria-label="Primary navigation">
@@ -55,6 +56,8 @@
 						id="menu-toggle"
 						type="button"
 						aria-label="Open menu"
+						aria-controls="mobile-menu"
+						aria-expanded="false"
 					>
 						<i data-lucide="menu"></i>
 					</button>
@@ -86,7 +89,7 @@
 				><a href="cart.html">Cart</a>
 			</div>
 		</aside>
-		<main>
+		<main id="main-content">
 			<section class="page-hero">
 				<div class="container page-hero__inner reveal">
 					<span class="eyebrow">The Edit</span>
@@ -128,6 +131,10 @@
 								<option value="name">Name</option>
 							</select>
 						</div>
+					</div>
+					<div class="data-notice" data-product-notice hidden role="status">
+						<p>We are showing the offline shelf while the product feed reconnects. You can still browse and build a bag.</p>
+						<span aria-hidden="true">OFFLINE MODE</span>
 					</div>
 					<div class="shop-meta reveal">
 						<strong id="shop-count">0 products</strong

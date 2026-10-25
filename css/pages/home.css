@@ -1,8 +1,39 @@
 .hero {
+	position: relative;
+	isolation: isolate;
 	min-height: 100vh;
 	display: grid;
 	align-items: end;
-	padding: 130px 0 52px;
+	padding: 150px 0 64px;
+	overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+	position: absolute;
+	z-index: -1;
+	border: var(--border);
+	content: "";
+	transform: rotate(-8deg);
+}
+
+.hero::before {
+	top: 20%;
+	right: -4rem;
+	width: 18rem;
+	height: 18rem;
+	background: var(--lime);
+	box-shadow: 12px 12px 0 var(--ink);
+}
+
+.hero::after {
+	bottom: -8rem;
+	left: -4rem;
+	width: 20rem;
+	height: 20rem;
+	border-radius: 50%;
+	background: var(--pink);
+	box-shadow: 12px 12px 0 var(--ink);
 }
 
 .hero__grid {
@@ -15,6 +46,16 @@
 .hero__copy {
 	display: grid;
 	gap: var(--space-5);
+}
+
+.hero__copy h1 {
+	max-width: 8ch;
+	text-shadow: 5px 5px 0 color-mix(in srgb, var(--pink), transparent 40%);
+}
+
+.hero__copy > p {
+	max-width: 50ch;
+	font-size: clamp(1.08rem, 1.8vw, 1.3rem);
 }
 
 .hero__actions,
@@ -44,7 +85,16 @@
 	transform: rotate(7deg);
 }
 
+.hero__sticker::before {
+	display: block;
+	margin-bottom: 0.5rem;
+	color: var(--pink);
+	content: "✦";
+	font-size: 1.4rem;
+}
+
 .category-card {
+	position: relative;
 	min-height: 230px;
 	display: grid;
 	align-content: end;
@@ -57,6 +107,29 @@
 	transition:
 		transform var(--fast),
 		box-shadow var(--fast);
+}
+
+.category-card::before {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	font-family: var(--font-heading);
+	font-size: 4rem;
+	line-height: 1;
+	opacity: 0.22;
+	content: "01";
+}
+
+.category-card:nth-child(2)::before {
+	content: "02";
+}
+
+.category-card:nth-child(3)::before {
+	content: "03";
+}
+
+.category-card:nth-child(4)::before {
+	content: "04";
 }
 
 .category-card:hover {
@@ -99,6 +172,7 @@
 .routine-band {
 	border-block: var(--border);
 	background: var(--surface);
+	box-shadow: inset 0 12px 0 color-mix(in srgb, var(--lime), transparent 55%), inset 0 -12px 0 color-mix(in srgb, var(--pink), transparent 75%);
 }
 
 .quiz-panel,
@@ -108,6 +182,14 @@
 	background: var(--surface);
 	box-shadow: var(--shadow-lg);
 	padding: clamp(1.4rem, 5vw, 3rem);
+}
+
+.quiz-panel {
+	background: var(--violet);
+}
+
+.newsletter-panel {
+	background: var(--butter);
 }
 
 [data-theme="dark"] .quiz-panel,
@@ -139,5 +221,15 @@
 	.hero__grid,
 	.newsletter-panel form {
 		grid-template-columns: 1fr;
+	}
+
+	.hero::before {
+		top: 12%;
+		right: -10rem;
+	}
+
+	.hero::after {
+		bottom: -10rem;
+		left: -10rem;
 	}
 }

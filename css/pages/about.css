@@ -8,6 +8,20 @@
 	background: var(--surface);
 	box-shadow: var(--shadow-md);
 	padding: var(--space-6);
+	transition: transform var(--fast), box-shadow var(--fast);
+}
+
+.value-card:nth-child(2) {
+	background: var(--pink);
+}
+
+.value-card:nth-child(3) {
+	background: var(--sage);
+}
+
+.value-card:hover {
+	transform: translate(-4px, -4px) rotate(-1deg);
+	box-shadow: var(--shadow-lg);
 }
 
 .value-card::before {

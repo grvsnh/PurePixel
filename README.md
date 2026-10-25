@@ -15,7 +15,7 @@ Pure Pixel is a frontend-only luxury beauty e-commerce portfolio project built w
 
 ## Architecture
 
-- `css/variables.css` centralizes design tokens.
+- `css/variables.css` centralizes design tokens for the bright, hard-shadow neobrutalist system and its dark mode.
 - `css/reset.css`, `css/global.css`, `css/components.css`, and `css/animations.css` form the shared design system.
 - `css/pages/` contains page-specific layout styles.
 - `data/products.json` and `data/reviews.json` provide reusable content data.
@@ -40,9 +40,10 @@ http://127.0.0.1:4173/
 - Responsive navigation and mobile drawer
 - Light and dark theme persistence
 - Product rendering from JSON
+- Offline product fallback data and generated image placeholders when a feed or remote image fails
 - Search, category filtering, and sorting
 - Wishlist persistence with localStorage
 - Cart persistence, quantity controls, subtotals, and checkout summary
 - Product detail routing via query string
-- Scroll progress, reveal animations, loader, and back-to-top control
-- Semantic markup and accessible labels for key controls
+- Scroll progress, reveal animations, loader, toast feedback, and back-to-top control
+- Semantic markup, skip navigation, keyboard-friendly drawer behavior, and accessible labels for key controls

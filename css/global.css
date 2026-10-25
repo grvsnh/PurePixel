@@ -2,14 +2,17 @@
 
 body {
 	background:
-		radial-gradient(circle at 16% 12%, color-mix(in srgb, var(--pink), transparent 88%), transparent 28rem),
-		radial-gradient(circle at 88% 28%, color-mix(in srgb, var(--blue), transparent 90%), transparent 32rem),
+		linear-gradient(color-mix(in srgb, var(--ink), transparent 94%) 1px, transparent 1px),
+		linear-gradient(90deg, color-mix(in srgb, var(--ink), transparent 94%) 1px, transparent 1px),
+		radial-gradient(circle at 16% 12%, color-mix(in srgb, var(--pink), transparent 82%), transparent 27rem),
+		radial-gradient(circle at 88% 28%, color-mix(in srgb, var(--blue), transparent 86%), transparent 30rem),
 		var(--bg);
+	background-size: 34px 34px, 34px 34px, auto, auto;
 	color: var(--ink);
 	font-family: var(--font-body);
 	font-size: 1rem;
 	font-weight: 500;
-	line-height: 1.72;
+	line-height: 1.6;
 	overflow-x: hidden;
 	transition:
 		background var(--normal),
@@ -18,9 +21,12 @@ body {
 
 [data-theme="dark"] body {
 	background:
-		radial-gradient(circle at 16% 12%, color-mix(in srgb, var(--pink), transparent 94%), transparent 24rem),
-		radial-gradient(circle at 88% 28%, color-mix(in srgb, var(--blue), transparent 95%), transparent 28rem),
+		linear-gradient(color-mix(in srgb, var(--ink), transparent 94%) 1px, transparent 1px),
+		linear-gradient(90deg, color-mix(in srgb, var(--ink), transparent 94%) 1px, transparent 1px),
+		radial-gradient(circle at 16% 12%, color-mix(in srgb, var(--pink), transparent 91%), transparent 24rem),
+		radial-gradient(circle at 88% 28%, color-mix(in srgb, var(--blue), transparent 93%), transparent 28rem),
 		var(--bg);
+	background-size: 34px 34px, 34px 34px, auto, auto;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -44,6 +50,24 @@ body.menu-open {
 .container {
 	width: min(calc(100% - 32px), var(--container));
 	margin-inline: auto;
+}
+
+.skip-link {
+	position: fixed;
+	top: 0.75rem;
+	left: 0.75rem;
+	z-index: 1100;
+	padding: 0.7rem 1rem;
+	border: var(--border);
+	background: var(--lime);
+	box-shadow: var(--shadow-sm);
+	font-weight: 900;
+	transform: translateY(-150%);
+	transition: transform var(--fast);
+}
+
+.skip-link:focus {
+	transform: translateY(0);
 }
 
 .section {
@@ -71,17 +95,17 @@ h3,
 h4 {
 	font-family: var(--font-heading);
 	font-weight: 700;
-	line-height: 0.95;
-	letter-spacing: 0;
+	line-height: 0.94;
+	letter-spacing: -0.035em;
 	text-wrap: balance;
 }
 
 h1 {
-	font-size: clamp(3.25rem, 12vw, 9.5rem);
+	font-size: clamp(3.1rem, 9vw, 8.2rem);
 }
 
 h2 {
-	font-size: clamp(2.4rem, 7vw, 5.7rem);
+	font-size: clamp(2.4rem, 6vw, 5.4rem);
 }
 
 h3 {
@@ -99,6 +123,11 @@ p {
 	max-width: 66ch;
 }
 
+::selection {
+	background: var(--pink);
+	color: var(--ink);
+}
+
 .eyebrow {
 	display: inline-flex;
 	width: fit-content;
@@ -106,7 +135,7 @@ p {
 	gap: var(--space-2);
 	padding: 0.45rem 0.75rem;
 	border: var(--border);
-	border-radius: var(--radius-xs);
+	border-radius: 999px;
 	background: var(--butter);
 	box-shadow: var(--shadow-sm);
 	color: #111;
@@ -165,7 +194,7 @@ p {
 	position: relative;
 	overflow: hidden;
 	border: var(--border);
-	border-radius: var(--radius-sm);
+	border-radius: var(--radius-md);
 	box-shadow: var(--shadow-lg);
 	background: var(--surface-strong);
 }
@@ -190,6 +219,38 @@ p {
 	text-align: center;
 }
 
+.data-notice {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-3);
+	margin-bottom: var(--space-5);
+	padding: 0.8rem 1rem;
+	border: 2px solid var(--line);
+	border-radius: var(--radius-xs);
+	background: color-mix(in srgb, var(--butter), var(--surface) 35%);
+	box-shadow: var(--shadow-sm);
+	font-size: 0.86rem;
+	font-weight: 800;
+}
+
+.data-notice p {
+	color: var(--ink);
+	font-size: 0.86rem;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
 [data-theme="dark"] .empty-state {
 	background: var(--surface-strong);
 }
@@ -205,5 +266,19 @@ p {
 	.split,
 	.section__header--split {
 		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 560px) {
+	.container {
+		width: min(calc(100% - 24px), var(--container));
+	}
+
+	.section {
+		padding: 64px 0;
+	}
+
+	.page-hero {
+		padding-top: 122px;
 	}
 }

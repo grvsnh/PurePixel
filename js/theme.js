@@ -24,10 +24,13 @@ const Theme = Object.freeze({
 		document.documentElement.dataset.theme =
 			theme === "dark" ? "dark" : "light";
 		Utils.$$("#theme-toggle").forEach((button) => {
+			const nextTheme = theme === "dark" ? "light" : "dark";
 			button.setAttribute(
 				"aria-label",
-				`Switch to ${theme === "dark" ? "light" : "dark"} theme`,
+				`Switch to ${nextTheme} theme`,
 			);
+			button.setAttribute("title", `Switch to ${nextTheme} theme`);
+			button.setAttribute("aria-pressed", String(theme === "dark"));
 		});
 	},
 });

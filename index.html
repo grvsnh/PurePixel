@@ -17,6 +17,7 @@
 		<link rel="stylesheet" href="css/pages/home.css" />
 	</head>
 	<body>
+		<a class="skip-link" href="#main-content">Skip to content</a>
 		<div class="scroll-progress" id="scroll-progress"></div>
 		<div class="loader" id="loader">
 			<div class="loader__mark" aria-label="Pure Pixel">
@@ -65,6 +66,8 @@
 						id="menu-toggle"
 						type="button"
 						aria-label="Open menu"
+						aria-controls="mobile-menu"
+						aria-expanded="false"
 					>
 						<i data-lucide="menu"></i>
 					</button>
@@ -96,7 +99,7 @@
 				><a href="cart.html">Cart</a>
 			</div>
 		</aside>
-		<main>
+		<main id="main-content">
 			<section class="hero">
 				<div class="container hero__grid">
 					<div class="hero__copy reveal">

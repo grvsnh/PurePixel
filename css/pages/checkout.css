@@ -6,6 +6,11 @@
 	background: var(--surface);
 	box-shadow: var(--shadow-md);
 	padding: var(--space-6);
+	background: var(--violet);
+}
+
+.checkout-form h3 + .form-grid {
+	margin-bottom: var(--space-4);
 }
 
 .form-grid {

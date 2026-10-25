@@ -17,6 +17,12 @@
 	background: var(--surface);
 	box-shadow: var(--shadow-md);
 	padding: var(--space-4);
+	transition: transform var(--fast), box-shadow var(--fast);
+}
+
+.line-item:hover {
+	transform: translate(-3px, -3px);
+	box-shadow: var(--shadow-lg);
 }
 
 .line-item img {
@@ -25,6 +31,10 @@
 	object-fit: cover;
 	border: var(--border);
 	border-radius: var(--radius-xs);
+}
+
+.line-item > div:nth-child(2) {
+	flex: 1;
 }
 
 .line-item__qty {
@@ -36,6 +46,7 @@
 .summary-card {
 	position: sticky;
 	top: 120px;
+	background: var(--butter);
 }
 
 .summary-row {
